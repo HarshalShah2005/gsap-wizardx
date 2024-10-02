@@ -121,7 +121,26 @@ function page3Animation() {
 
 }
 
+function cardAnimation() {
+    var cards = document.querySelectorAll(".elem");
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", (dets) => {
+            gsap.to(card, {
+                scale: 1.075,
+                backgroundColor: "gray",
+            });
+        });
+
+        card.addEventListener("mouseleave", (dets) => {
+            gsap.to(card, {
+                scale: 1,
+                backgroundColor: card.classList.contains("black") ? "black" : "white"
+            });
+        });
+    });
+}
+
 page1Animation()
 page2Animation()
 page3Animation()
-
+cardAnimation()
